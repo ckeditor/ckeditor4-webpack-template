@@ -12,9 +12,17 @@
     "CKEditor4",
     "webpack",
     "babel",
-    "terser"
+    "terser",
+    "ckeditor",
+    "fckeditor",
+    "editor",
+    "wysiwyg",
+    "html",
+    "richtext",
+    "text",
+    "javascript"
   ],
-  "author": "CKSource",
+  "author": "CKSource (https://cksource.com/)",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.7.4",
