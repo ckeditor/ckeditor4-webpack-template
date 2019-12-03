@@ -2,7 +2,7 @@
   "name": "ckeditor4-webpack-template",
   "private": true,
   "version": "0.0.0",
-  "description": "Simple template for creating CKEditor 4 projects with Webpack.",
+  "description": "A simple template for creating CKEditor 4 projects with webpack.",
   "main": "dist/app.js",
   "scripts": {
     "start": "npm run build && live-server --open=samples/index.html",
