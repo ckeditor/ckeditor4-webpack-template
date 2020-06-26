@@ -5,7 +5,8 @@
   "description": "A simple template for creating CKEditor 4 projects with webpack.",
   "main": "dist/app.js",
   "scripts": {
-    "start": "npm run build && serve ./dist",
+    "prestart": "npm run build",
+    "start": "serve ./dist",
     "build": "webpack --mode production"
   },
   "keywords": [
