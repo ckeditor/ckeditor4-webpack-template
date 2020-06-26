@@ -7,6 +7,7 @@
 
 const { resolve: resolvePath } = require( 'path' );
 const TerserWebpackPlugin = require( 'terser-webpack-plugin' );
+const CopyPlugin = require( 'copy-webpack-plugin' );
 
 module.exports = {
 	mode: 'production',
@@ -66,4 +67,12 @@ module.exports = {
 			}
 		]
 	},
+
+	plugins: [
+		new CopyPlugin( {
+			patterns: [
+				{ from: 'node_modules/ckeditor4', to: 'ckeditor4' }
+			]
+		} )
+	]
 };
