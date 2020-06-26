@@ -8,6 +8,8 @@
 const { resolve: resolvePath } = require( 'path' );
 const TerserWebpackPlugin = require( 'terser-webpack-plugin' );
 const CopyPlugin = require( 'copy-webpack-plugin' );
+const srcPath = resolvePath( __dirname, 'src' );
+const distPath = resolvePath( __dirname, 'dist' );
 
 module.exports = {
 	mode: 'production',
@@ -17,10 +19,10 @@ module.exports = {
 		hints: false
 	},
 
-	entry: resolvePath( __dirname, 'src', 'index.js' ),
+	entry: resolvePath( srcPath, 'index.js' ),
 
 	output: {
-		path: resolvePath( __dirname, 'dist' ),
+		path: distPath,
 		filename: 'app.js',
 		libraryTarget: 'umd'
 	},
@@ -71,8 +73,15 @@ module.exports = {
 	plugins: [
 		new CopyPlugin( {
 			patterns: [
-				{ from: 'node_modules/ckeditor4', to: 'ckeditor4' },
-				{ from: 'src/index.html', to: '.' }
+				{
+					from: resolvePath( __dirname, 'node_modules', 'ckeditor4' ),
+					to: resolvePath( distPath, 'ckeditor4' )
+				},
+
+				{
+					from: resolvePath( srcPath, 'index.html' ),
+					to: distPath
+				}
 			]
 		} )
 	]
