@@ -71,7 +71,8 @@ module.exports = {
 	plugins: [
 		new CopyPlugin( {
 			patterns: [
-				{ from: 'node_modules/ckeditor4', to: 'ckeditor4' }
+				{ from: 'node_modules/ckeditor4', to: 'ckeditor4' },
+				{ from: 'src/index.html', to: '.' }
 			]
 		} )
 	]
