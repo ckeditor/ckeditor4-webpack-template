@@ -74,8 +74,9 @@ module.exports = {
 		new CopyPlugin( {
 			patterns: [
 				{
-					from: resolvePath( __dirname, 'node_modules', 'ckeditor4' ),
-					to: resolvePath( distPath, 'ckeditor4' )
+					from: '{config.js,contents.css,styles.js,adapters/**/*,lang/**/*,plugins/**/*,skins/**/*,vendor/**/*}',
+					to: resolvePath( distPath, 'ckeditor4' ),
+					context: resolvePath( __dirname, 'node_modules', 'ckeditor4' )
 				},
 
 				{
