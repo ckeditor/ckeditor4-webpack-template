@@ -7,6 +7,7 @@
 
 const { resolve: resolvePath } = require( 'path' );
 const TerserWebpackPlugin = require( 'terser-webpack-plugin' );
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require( 'copy-webpack-plugin' );
 const srcPath = resolvePath( __dirname, 'src' );
 const distPath = resolvePath( __dirname, 'dist' );
@@ -71,6 +72,7 @@ module.exports = {
 	},
 
 	plugins: [
+		new CleanWebpackPlugin(),
 		new CopyPlugin( {
 			patterns: [
 				{
