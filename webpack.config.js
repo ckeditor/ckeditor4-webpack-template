@@ -7,6 +7,10 @@
 
 const { resolve: resolvePath } = require( 'path' );
 const TerserWebpackPlugin = require( 'terser-webpack-plugin' );
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require( 'copy-webpack-plugin' );
+const srcPath = resolvePath( __dirname, 'src' );
+const distPath = resolvePath( __dirname, 'dist' );
 
 module.exports = {
 	mode: 'production',
@@ -16,10 +20,10 @@ module.exports = {
 		hints: false
 	},
 
-	entry: resolvePath( __dirname, 'src', 'index.js' ),
+	entry: resolvePath( srcPath, 'index.js' ),
 
 	output: {
-		path: resolvePath( __dirname, 'dist' ),
+		path: distPath,
 		filename: 'app.js',
 		libraryTarget: 'umd'
 	},
@@ -66,4 +70,22 @@ module.exports = {
 			}
 		]
 	},
+
+	plugins: [
+		new CleanWebpackPlugin(),
+		new CopyPlugin( {
+			patterns: [
+				{
+					from: '{config.js,contents.css,styles.js,adapters/**/*,lang/**/*,plugins/**/*,skins/**/*,vendor/**/*}',
+					to: resolvePath( distPath, 'ckeditor4' ),
+					context: resolvePath( __dirname, 'node_modules', 'ckeditor4' )
+				},
+
+				{
+					from: resolvePath( srcPath, 'index.html' ),
+					to: distPath
+				}
+			]
+		} )
+	]
 };

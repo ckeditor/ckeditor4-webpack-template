@@ -5,7 +5,8 @@
   "description": "A simple template for creating CKEditor 4 projects with webpack.",
   "main": "dist/app.js",
   "scripts": {
-    "start": "npm run build && live-server --open=samples/index.html",
+    "prestart": "npm run build",
+    "start": "serve ./dist",
     "build": "webpack --mode production"
   },
   "keywords": [
@@ -25,14 +26,17 @@
   "author": "CKSource (https://cksource.com/)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "babel-loader": "^8.0.6",
-    "ckeditor4": "^4.13.0",
-    "core-js": "^3.4.3",
-    "live-server": "^1.2.1",
-    "terser-webpack-plugin": "^2.2.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
-  }
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "ckeditor4": "^4.14.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "core-js": "^3.6.5",
+    "serve": "^11.3.2",
+    "terser-webpack-plugin": "^3.0.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {}
 }
